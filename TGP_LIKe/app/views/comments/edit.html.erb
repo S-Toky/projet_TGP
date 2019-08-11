@@ -1,0 +1,8 @@
+<div class="form-group">
+<%= form_for @comments do |f| %>
+
+ <label> titre du gossip  </label>  
+  <%= f.text_area :content, class: "form-control" %> </br>
+  <%= f.submit "Edit", class: "btn btn-primary" %>
+<% end %>
+</div>

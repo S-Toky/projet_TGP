@@ -1,0 +1,51 @@
+
+
+<div class="form-group col-md-8">
+  <%= form_for @user do |f| %>
+    <div class="form-row">
+      <div class="col">
+        <label> First_name  </label>
+        <%= f.text_field :first_name, class: "form-control", placeholder:"First name" %>
+      </div>
+      <div class="col">
+        <label> Last_name  </label>
+        <%= f.text_field :last_name, class: "form-control", placeholder:"Last_name" %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <label> E-mail  </label>
+        <%= f.email_field :email, class: "form-control", placeholder:"E-mail" %>
+      </div>
+      <div class="col">
+        <label> Age  </label>
+        <%= f.text_field :age, class: "form-control", placeholder:"Age" %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4", class="col">
+        <label for="inputState">City</label>
+        <%= f.select :city_id, City.all.collect { |p| [ p.name, p.id ] }, {}, { :class => 'form-control'} %>
+      </div>
+      <div class="col">
+        <label> Descritpion  </label>
+        <%= f.text_area :description, class: "form-control", placeholder:"Descritpion" %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <label> Password  </label>
+        <%= f.password_field :password, class: "form-control", placeholder:"Password" %>
+      </div>
+      <div class="col">
+        <label> Password confirmation  </label>
+        <%= f.password_field :password_confirmation, class: "form-control", placeholder:"Password confirmation" %>
+      </div>
+    </div>
+    </br>
+    <div class="form-row">
+      <%= f.submit "Valider", class: "btn btn-primary" %>
+
+    </div>
+  <% end %>
+</div>

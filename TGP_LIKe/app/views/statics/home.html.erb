@@ -1,0 +1,21 @@
+
+
+ <body class="text-center" style="background-color: black; color: white;">
+
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+           <% if session[:user_id] == nil %>
+           <h3> Bienvenue sur le site "The gossips"</h3>
+           <%else%>
+          <h3 class="masthead-brand">Bienvenue <%=current_user.first_name%> <%=current_user.last_name%></h3>
+           <% end %> 
+        </div>
+      </header>
+
+      <main role="main" class="inner cover">
+        <h1 class="cover-heading">THE GOSSIPS</h1>
+        <p class="lead"> HERE YOU CAN POST, COMMENT AND LIKE </p>
+        <p class="lead">
+    </div>
+</body>

@@ -1,0 +1,23 @@
+<div class="form-group">
+<%= form_for @gossips do |f| %>
+ <label> titre du gossip  </label>  
+	<%= f.text_field :title, class: "form-control" %> </br>
+
+ <label> titre du gossip  </label>  
+  <%= f.text_area :content, class: "form-control" %> </br>
+  <%= f.submit "Edit", class: "btn btn-primary" %>
+<% end %>
+</div>
+
+ <% if @gossips.errors.any? %>
+       <div class="alert alert-danger" role="alert">
+            A simple danger alert—check it out!
+      </div>
+
+            <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :</p>
+            <ul>
+              <% @gossips.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+      <% end %>

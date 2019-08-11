@@ -1,0 +1,22 @@
+<div class="card w-75">
+  <div class="card-body">
+    <h5 class="card-title">The city </h5>
+    <p class="card-text">Name : <%= @city.name%></br>
+	
+	<% @users.each do |user| %>
+
+		<%gossips = user.gossips%>
+		<% gossips.each do |gossip| %>
+		<ul>
+			<li><%= gossip.title%></li>
+			<li><%= gossip.content%></li>
+		</ul>
+		<%end%>
+	<%end%>		
+
+    <span class="btn btn-light"><%= link_to "Back to home", controller:"gossips", action:"index"%></span>
+  </div>
+  	
+</div>
+<div class="card text-center">
+
