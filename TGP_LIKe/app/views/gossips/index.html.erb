@@ -1,0 +1,22 @@
+
+
+<div class="card text-center">
+  <div class="card-header">
+    All gossips
+  </div>
+        <% @gossip.each do |gossips| %>
+        <%comment_number = gossips.comments.count%> 
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment </h5>
+      <p class="card-text"> 
+        <%= "Author : " %>
+    		<% user = gossips.user_id %> 
+    		<%= User.find(user).first_name %></br>
+    		<%= "Gossip title : " %><%=gossips.title%> </br>
+        <%= "Comment number : " %><%=comment_number%>
+  	   </p>
+          <%= gossips.likes.count %> 👍 
+          <span class="btn btn-dark" > <%= link_to "more details ", controller:"gossips", action:"show", id:gossips.id%>  </span>
+  </div>
+        <%end%>
+</div>

@@ -1,0 +1,56 @@
+
+ <div class="btn-group dropright">
+  <button type="button" class="btn btn-secondary">
+    Menu
+  </button>
+  <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="sr-only">Toggle Dropright</span>
+  </button>
+  <div class="dropdown-menu">
+    <span style="text-decoration: none;">
+      <%= link_to "About author ", controller:"users", action:"show"%></br>
+        <%= link_to "See all gossips", controller:"gossips", action:"index"%> </br></span>
+          <%= link_to "Add comment", controller:"comments", action:"new", id: @gossips.id%></br>
+        <%= link_to "Back to home ", controller:"statics", action:"home"%></br>
+      <a href="/gossips/<%=@gossips.id%>", data-confirm="are you ok?", data-method="DELETE" > Delete </a></br>
+    <%= link_to "Edit", controller:"gossips", action:"edit", id:@gossips.id%>
+  </div>
+</div>
+ 
+
+
+
+  <div class="card-body">
+    <h5 class="card-title"> Hello <%= @user.first_name %></h5>
+    <p class="card-text">You are post a gossip n° : <%= @gossips.id %> </br>  
+    	Title : <%= @gossips.title %></br>
+  		Content : <%= @gossips.content %></br>
+  		Author : <%= @user.first_name %> <%= @user.last_name %> </br>
+  		City : <%= @city.name%></br>
+  </p>
+  </div>
+    <div>
+          <%pre_like = @gossips.likes.find{|like|like.user_id == current_user.id}%>
+            <%if pre_like%>
+              <%= button_to 'Unlike', gossip_like_path(@gossips, pre_like), method: :delete%>
+            <%else%>
+              <%= button_to 'Like', gossip_likes_path(@gossips), method: :post%>
+            <%end%>
+            <p>
+          <%= @gossips.likes.count%> <%=(@gossips.likes.count) == 1 ? 'Like' : 'Likes' %>
+       </p>
+    </div>
+  <div>    
+      <h3>comment: </h3>
+        <ul>
+          <%@comments.each do |comment|%>
+            <li><%=comment.content%> <%= link_to "Edit", controller:"comments", action:"edit", id: comment.id%>
+           <a href="/comments/<%=comment.id%>", data-confirm="are you ok?", data-method="DELETE" > Delete </a></br> </li>
+        <%end%>
+      </ul>      
+  </div>
+
+
+
+
+

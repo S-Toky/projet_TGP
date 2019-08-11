@@ -1,0 +1,26 @@
+ 
+<div class="form-group col-md-4">
+ <h1>Sign In </h1>
+         <%= form_tag url_for(action: 'create'), method: "post" do %>
+
+         <%= label_tag 'E_mail' %> </br>
+          <%= email_field_tag 'email', @session.email %>
+          <br /> <br /> 
+
+          <%= label_tag 'Password' %></br>
+          <%= password_field_tag 'password', @session.password %>
+          <br> <br />
+
+          <p><%= submit_tag "Login in" %> New user? <%= link_to "Sign up now!", new_user_path%></p>
+
+
+        <% end %>
+
+        <% if flash[:success] %>
+         <div class="success"><%= flash[:success] %></div>
+        <% end %>
+</div>
+
+
+
+  
